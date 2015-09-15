@@ -20,7 +20,24 @@
 #         self.right = None
 
 class Solution(object):
-    def lowestCommonAncestor(self, root, p, q):
+    def lowestCommonAncestor_1(self, root, p, q):
+        """
+        this algorithm may have problems if p or q does not exist in the BST but there is a node's value between them.
+        :param root:
+        :param p:
+        :param q:
+        :return:
+        """
+        while root is not None:
+            if p.val < root.val and q.val < root.val:
+                root = root.left
+            elif p.val > root.val and q.val > root.val:
+                root = root.right
+            else:
+                break
+
+        return root
+    def lowestCommonAncestor_2(self, root, p, q):
         """
         :type root: TreeNode
         :type p: TreeNode
@@ -57,23 +74,7 @@ class Solution(object):
 
         return is_found, result
 
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        this algorithm may have problems if p or q does not exist in the BST but there is a node's value between them.
-        :param root:
-        :param p:
-        :param q:
-        :return:
-        """
-        while root is not None:
-            if p.val < root.val and q.val < root.val:
-                root = root.left
-            elif p.val > root.val and q.val > root.val:
-                root = root.right
-            else:
-                break
 
-        return root
 #======================================================================================================================= Functions
 
 #***********************************************************************************************************************
