@@ -15,19 +15,19 @@ class Solution:
         self.root = None
 
     def accept(self, x):
-        self.root = self._accept(self.root, x)
+        self.root = self._insert(self.root, x)
 
     # Insert a node to a None kid
     # This is a O(lgN) operation
     # This method will not guarantee this BST is balanced
-    def _accept(self, node, x):
+    def _insert(self, node, x):
         if not node:
             return TreeNode(x)
 
         if x <= node.val:
-            node.left = self._accept(node.left, x)
+            node.left = self._insert(node.left, x)
         else:
-            node.right = self._accept(node.right, x)
+            node.right = self._insert(node.right, x)
 
         return node
 
