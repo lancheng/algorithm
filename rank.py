@@ -58,3 +58,5 @@ if __name__ == '__main__':
     s.accept(2)
 
     print s.rank(20)
+    print s.rank(2)
+
